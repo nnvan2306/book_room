@@ -326,8 +326,7 @@ export const deletePostSevice = async (id) =>
 export const updatePostSevice = async (data) =>
     new Promise(async (resolve, reject) => {
         try {
-            console.log("data >>> ", data);
-            // console.log("data >>>", JSON.stringify(data.images));
+            // console.log("data >>> ", data);
             await db.Post.update(
                 {
                     ...data,
