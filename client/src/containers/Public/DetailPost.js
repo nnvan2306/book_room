@@ -24,7 +24,7 @@ const DetailPost = () => {
         }
     }, [postId]);
 
-    console.log(post);
+    // console.log(post);
     return (
         <div
             style={{
@@ -128,7 +128,9 @@ const DetailPost = () => {
                 </p>
                 <div>
                     <p className="text-[20px] font-[500]">Chi tiết</p>
-                    <p>{JSON.parse(post?.description)}</p>
+                    <p>
+                        {post?.description ? JSON.parse(post?.description) : ""}
+                    </p>
                 </div>
             </div>
         </div>
