@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Overview, Address, Loading, Button } from "../../components";
-import { apiUpdatePost, apiUploadImages } from "../../services";
-import icons from "../../ultils/icons";
-import { getCodes, getCodesArea } from "../../ultils/Common/getCodes";
 import { useSelector } from "react-redux";
-import { apiCreatePost } from "../../services";
 import Swal from "sweetalert2";
+import { Address, Button, Loading, Overview } from "../../components";
+import { apiCreatePost, apiUpdatePost, apiUploadImages } from "../../services";
+import { getCodes, getCodesArea } from "../../ultils/Common/getCodes";
 import validate from "../../ultils/Common/validateFields";
+import icons from "../../ultils/icons";
 
 const { BsCameraFill, ImBin } = icons;
 
@@ -245,7 +244,7 @@ const CreatePost = ({ isEdit, dataEdit, setIsEdit }) => {
                         bgColor="bg-green-600"
                         textColor="text-white"
                     />
-                    <div className="h-[500px]"></div>
+                    {/* <div className="h-[500px]"></div> */}
                 </div>
                 {/* <div className="w-[30%] flex-none">
                     maps
