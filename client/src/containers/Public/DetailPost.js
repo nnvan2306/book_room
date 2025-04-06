@@ -81,6 +81,15 @@ const DetailPost = () => {
                     style={{
                         fontSize: "18px",
                         fontWeight: "500",
+                    }}
+                    className="mb-[10px]"
+                >
+                    {post?.title}
+                </p>
+                <p
+                    style={{
+                        fontSize: "18px",
+                        fontWeight: "500",
                         color: "#dc2626",
                     }}
                     className="mb-[10px]"
@@ -89,8 +98,7 @@ const DetailPost = () => {
                 </p>
                 <p
                     style={{
-                        fontSize: "18px",
-                        fontWeight: "500",
+                        fontSize: "16px",
                     }}
                     className="mb-[10px]"
                 >
