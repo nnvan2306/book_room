@@ -13,8 +13,8 @@ const DetailPost = () => {
             if (res.status === 200) {
                 setPost(res?.data?.response);
                 setCurrentImage(
-                    post?.images?.image
-                        ? JSON.parse(post?.images?.image)[0]
+                    res?.data?.response?.images?.image
+                        ? JSON.parse(res?.data?.response?.images?.image)[0]
                         : ""
                 );
             }
