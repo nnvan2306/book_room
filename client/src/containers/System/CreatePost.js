@@ -10,7 +10,7 @@ import validate from "../../ultils/Common/validateFields";
 
 const { BsCameraFill, ImBin } = icons;
 
-const CreatePost = ({ isEdit, dataEdit }) => {
+const CreatePost = ({ isEdit, dataEdit, setIsEdit }) => {
     // console.log(dataEdit)
     const [payload, setPayload] = useState(() => {
         const initData = {
@@ -58,7 +58,7 @@ const CreatePost = ({ isEdit, dataEdit }) => {
             ...prev,
             images: !isEdit
                 ? [...prev.images, ...images]
-                : [...JSON.parse(payload.images?.image), ...images],
+                : [...JSON.parse(payload.images), ...images],
         }));
     };
     const handleDeleteImage = (image) => {
@@ -66,7 +66,7 @@ const CreatePost = ({ isEdit, dataEdit }) => {
         setPayload((prev) => ({
             ...prev,
             images: (isEdit
-                ? JSON.parse(payload.images?.image)
+                ? JSON.parse(payload.images)
                 : payload.images
             )?.filter((item) => item !== image),
         }));
@@ -125,6 +125,10 @@ const CreatePost = ({ isEdit, dataEdit }) => {
                     });
                 }
             );
+            setImagesPreview([]);
+            if (isEdit) {
+                setIsEdit(false);
+            }
         } else {
             Swal.fire("Thất bại ", "Có lỗi gì đó", "error");
         }
@@ -139,14 +143,13 @@ const CreatePost = ({ isEdit, dataEdit }) => {
 
     useEffect(() => {
         if (isEdit && dataEdit) {
-            console.log("dataEdit >>> ", dataEdit);
             setPayload({
                 ...dataEdit,
                 categoryCode: dataEdit?.categoryCode || "",
                 title: dataEdit?.title || "",
                 priceNumber: dataEdit?.priceNumber * 1000000 || "",
                 areaNumber: dataEdit?.areaNumber || "",
-                images: dataEdit?.images || "",
+                images: dataEdit?.images?.image || "",
                 address: dataEdit?.address || "",
                 priceCode: dataEdit?.priceCode || "",
                 areaCode: dataEdit?.areaCode || "",
