@@ -120,7 +120,7 @@ const DetailPost = () => {
                 </p>
                 <div>
                     <p className="text-[20px] font-[500]">Chi tiết</p>
-                    <p>{post?.description}</p>
+                    <p>{JSON.parse(post?.description)}</p>
                 </div>
             </div>
         </div>
